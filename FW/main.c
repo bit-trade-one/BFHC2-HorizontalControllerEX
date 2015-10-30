@@ -1,4 +1,5 @@
 // HorizontalControllerEX
+//	ver 006		SW入力で変化時にしか送信していない不具合修正(Volumeは１回のみ出力)
 //	ver 005		量産用
 //	ver 004		CW,CCWの順番を入れ替え、デフォルト値設定
 //	ver 003		量産基板用 LED追加
@@ -195,7 +196,7 @@ BYTE led_updown_timer_counter = 0;
 
 /** VARIABLES ******************************************************/
 #pragma udata
-char	c_version[]="0.0.5";
+char	c_version[]="0.0.6";
 #define MOUSE_BUFFER_SIZE		4
 #define VOLUME_BUFFER_SIZE		1
 #define KEYBOARD_BUFFER_SIZE	8
@@ -214,6 +215,7 @@ USB_HANDLE USBInHandle = 0;
 BYTE sw_now_fix[SW_NUM]={0};
 BYTE sw_now_fix_pre[SW_NUM]={0};
 BYTE sw_output_flag[SW_NUM]={0};
+BYTE sw_output_volume_flag[SW_NUM]={0};	// Volumeは、変化時に１回のみ出力するための出力状態記憶用
 BYTE sw_press_on_cnt[SW_NUM]={0};
 BYTE sw_press_off_cnt[SW_NUM]={0};
 
@@ -890,7 +892,10 @@ debug_arr1[0]++;
 	{
 		if(sw_output_flag[fi] == N_ON)
 		{
-			sw_output_flag[fi] = N_OFF;
+			if(fi == SW_ENCORDER_A_IDX || fi == SW_ENCORDER_B_IDX)
+			{
+				sw_output_flag[fi] = N_OFF;
+			}
 
 			set_eeprom_idx = fi + (SW_NUM * mode_sw_fix);
 
@@ -977,22 +982,38 @@ debug_arr1[0]++;
 					keyboard_input_out_flag = 5;
 					break;
 				case SET_TYPE_VOLUME_UP:
-					volume_buffer[0] = VOLUME_DATA_UP;
-					volume_input_out_flag = 5;
+					if(sw_output_volume_flag[fi] == N_OFF)
+					{
+						volume_buffer[0] = VOLUME_DATA_UP;
+						volume_input_out_flag = 5;
+						sw_output_volume_flag[fi] = N_ON;
+					}
 					break;
 				case SET_TYPE_VOLUME_DOWN:
-					volume_buffer[0] = VOLUME_DATA_DOWN;
-					volume_input_out_flag = 5;
+					if(sw_output_volume_flag[fi] == N_OFF)
+					{
+						volume_buffer[0] = VOLUME_DATA_DOWN;
+						volume_input_out_flag = 5;
+						sw_output_volume_flag[fi] = N_ON;
+					}
 					break;
 				case SET_TYPE_VOLUME_MUTE:
-					volume_buffer[0] = VOLUME_DATA_MUTE;
-					volume_input_out_flag = 5;
+					if(sw_output_volume_flag[fi] == N_OFF)
+					{
+						volume_buffer[0] = VOLUME_DATA_MUTE;
+						volume_input_out_flag = 5;
+						sw_output_volume_flag[fi] = N_ON;
+					}
 					break;
 				case SET_TYPE_NONE:
 				default:
 					break;
 			}
 		}
+		else
+		{
+			sw_output_volume_flag[fi] = N_OFF;
+		}	
 	}	
 
 
@@ -1068,7 +1089,7 @@ debug_arr1[0]++;
 //			volume_buffer[fi] =0;
 //		}
        	volume_input[0] = volume_buffer[0];
-		volume_buffer[0] =0;
+		volume_buffer[0] = 0;
 
 		if( volume_input_out_flag > 0)
 		{
@@ -1358,13 +1379,18 @@ void Switch_Input(void)
         // SW Push時の処理追加
         if( sw_now_fix_pre[fi] == N_OFF && sw_now_fix[fi] == N_ON )
         {	// 前回=OFF  今回=ON
-			sw_output_flag[fi] = N_ON;
+
         }
         else if( sw_now_fix_pre[fi] == N_ON && sw_now_fix[fi] == N_OFF )
         {	// 前回=ON  今回=OFF
 
         }
-        
+        // SWの場合は、状態セット
+        if(fi == SW_SWB_IDX || fi == SW_SWA_IDX)
+        {
+			sw_output_flag[fi] = sw_now_fix[fi];
+	    }
+
 
         // 今回値保存
         sw_now_fix_pre[fi] = sw_now_fix[fi];

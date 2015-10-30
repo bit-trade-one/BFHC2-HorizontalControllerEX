@@ -2,7 +2,7 @@
 MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
 Version=1.0
 [File000]
-Location=C:\Users\Shinozaki\work\HorizontalControllerEX\FW_HoriConEX_v005_20151013\usb_descriptors.o
+Location=C:\Users\Shinozaki\work\HorizontalControllerEX\FW_HoriConEX_v006\usb_descriptors.o
 Folder=Intermediary
 DeviceName=PIC18F14K50
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -15,7 +15,7 @@ ToolArgsString=
 TraceCmdString=
 DebugOptions=
 [File001]
-Location=C:\Users\Shinozaki\work\HorizontalControllerEX\FW_HoriConEX_v005_20151013\main.o
+Location=C:\Users\Shinozaki\work\HorizontalControllerEX\FW_HoriConEX_v006\main.o
 Folder=Intermediary
 DeviceName=PIC18F14K50
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -28,7 +28,7 @@ ToolArgsString=
 TraceCmdString=
 DebugOptions=
 [File002]
-Location=C:\Users\Shinozaki\work\HorizontalControllerEX\FW_HoriConEX_v005_20151013\usb_device.o
+Location=C:\Users\Shinozaki\work\HorizontalControllerEX\FW_HoriConEX_v006\usb_device.o
 Folder=Intermediary
 DeviceName=PIC18F14K50
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -41,7 +41,7 @@ ToolArgsString=
 TraceCmdString=
 DebugOptions=
 [File003]
-Location=C:\Users\Shinozaki\work\HorizontalControllerEX\FW_HoriConEX_v005_20151013\usb_function_hid.o
+Location=C:\Users\Shinozaki\work\HorizontalControllerEX\FW_HoriConEX_v006\usb_function_hid.o
 Folder=Intermediary
 DeviceName=PIC18F14K50
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -54,7 +54,7 @@ ToolArgsString=
 TraceCmdString=
 DebugOptions=
 [File004]
-Location=C:\Users\Shinozaki\work\HorizontalControllerEX\FW_HoriConEX_v005_20151013\eeprom.o
+Location=C:\Users\Shinozaki\work\HorizontalControllerEX\FW_HoriConEX_v006\eeprom.o
 Folder=Intermediary
 DeviceName=PIC18F14K50
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -67,7 +67,7 @@ ToolArgsString=
 TraceCmdString=
 DebugOptions=
 [File005]
-Location=C:\Users\Shinozaki\work\HorizontalControllerEX\FW_HoriConEX_v005_20151013\HorizontalControllerEX.cof
+Location=C:\Users\Shinozaki\work\HorizontalControllerEX\FW_HoriConEX_v006\HorizontalControllerEX.cof
 Folder=Output
 DeviceName=PIC18F14K50
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -80,7 +80,7 @@ ToolArgsString=/o"$(BINDIR_)$(TARGETBASE).cof" /M"$(BINDIR_)$(TARGETBASE).map" /
 TraceCmdString=
 DebugOptions=
 [File006]
-Location=C:\Users\Shinozaki\work\HorizontalControllerEX\FW_HoriConEX_v005_20151013\HorizontalControllerEX.hex
+Location=C:\Users\Shinozaki\work\HorizontalControllerEX\FW_HoriConEX_v006\HorizontalControllerEX.hex
 Folder=Output
 DeviceName=PIC18F14K50
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
