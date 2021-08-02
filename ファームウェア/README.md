@@ -1,6 +1,6 @@
 # ファームウェアの書き換え手順  
-1. ファームウェアアップデートツールをダウンロード下さい
-2. HorizontalControllerEX_vXXX.hexを保存して下さい。（XXXにはバージョン番号が入ります）
+1. ファームウェア変更ツールをダウンロード下さい
+2. HorizontalControllerEX_vXXXを保存して下さい。（XXXにはバージョン番号が入ります）
 3. Horizontal Controller EX本体のAボタンとBボタンを押しながらUSBケーブルをPCに差し込んで下さい
 4. HIDbootloaderと言う名前でデバイスが再認識されます
 5. その状態で先ほどダウンロードしたファームウェアアップデートツールを実行下さい
