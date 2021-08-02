@@ -1,4 +1,7 @@
 ﻿# Horizontal Controller EX
+ 
+ ## [製品の詳細はこちら](https://bit-trade-one.co.jp/product/bitferrous/bfhc2bk/)  
+ 
 ﻿●開発環境について
 
 ・ファームウェア
@@ -6,21 +9,3 @@ MPLAB IDE （最新版のMPLAB X IDEでもソースをインポートすればOK
 
 ・設定ツールアプリケーション
 Visual C# 2008 Express （最新版のVisual StudioでもソースをインポートすればOKだと思います。）
-
-●ファイル構成について
-・ファームウェア
-FWフォルダ
-
-・設定ツールアプリケーション
-PCフォルダ
-
-●ファームウェアの書き換え手順
-
-１.ブートモードにする
-　ブートモードの入り方
-　　AボタンとBボタンを押しながら、USBケーブルを挿します。HIDブートローダデバイスとして認識されます。
-
-２．HEXを書き込みます。
-　HIDBootloader.exeを起動して、HEXファイルを読み込み、プログラムします。
-
-３．USBケーブルを挿し直します。
